@@ -1,0 +1,18 @@
+Git clone https://github.com/saiben10/Netflix_DevOps.git
+AWS cli congigure {connecting to AWS through CLI}
+Terrafrom inmtsall
+Login to AWS console with Access and secrect Key
+created S3 bucket in AWS portal
+Created Dynamo DB in AWS portal
+Modified Backedn.tf and Variable.tf based on S3 and Dynamo configartion
+Key points igw_name: internet gate way which can talk to internet {conneted public subnet}
+security_group_name : acts as firewall for our EC2 instance {restricts the in and out traffic}
+
+VPC.tf reffer to
+# Resource to associate the Route Table with the public subnet
+resource "aws_route_table_association" "rt-association" {
+  # Associate the route table with the public subnet
+  route_table_id = aws_route_table.rt.id
+  subnet_id      = aws_subnet.public-subnet.id
+For accessing the public subnet through internet we need to create internet gate way and route table, mapping the routes to cidr blks and iternet gateway and route table association to connect to internet gate way.
+
